@@ -86,16 +86,25 @@ root@ubuntulinux:~# parted /dev/sdd mklabel gpt
 Далее создаю разделы в количестве 5 шт. по 10% Скин ДЗ 8-1.png,  ДЗ 8-2.png
 
 root@ubuntulinux:~#parted -a opt /dev/sdd mkpart primary xfs 0% 10%
+
 root@ubuntulinux:~#parted -a opt /dev/sdd mkpart primary xfs 10% 20%
+
 root@ubuntulinux:~#parted -a opt /dev/sdd mkpart primary xfs 20% 30%
+
 root@ubuntulinux:~#parted -a opt /dev/sdd mkpart primary xfs 30% 40%
+
 root@ubuntulinux:~#parted -a opt /dev/sdd mkpart primary xfs 40% 50%
 
 Далее форматирую разделы в файловую систему XFS, скрин ДЗ 8-3.png
+
 root@ubuntulinux:~# mkfs.xfs /dev/sdd1
+
 root@ubuntulinux:~# mkfs.xfs /dev/sdd2
+
 root@ubuntulinux:~# mkfs.xfs /dev/sdd3
+
 root@ubuntulinux:~# mkfs.xfs /dev/sdd4
+
 root@ubuntulinux:~# mkfs.xfs /dev/sdd5
 
 Создаю каталоги для монтирования дисков 
@@ -107,6 +116,7 @@ root@ubuntulinux:~# mkdir /mnt/1 && mkdir /mnt/2 && mkdir /mnt/3 && mkdir /mnt/4
 root@ubuntulinux:~# mount /dev/sdd2 /mnt/2 && mount /dev/sdd3 /mnt/3 && mount /dev/sdd4 /mnt/4 && mount /dev/sdd5 /mnt/5
 
 Проверяем, что у нас диск /dev/sdd с GPT. Скрин ДЗ 9.png
+
 root@ubuntulinux:~# gdisk -l /dev/sdd
 
 Домашнее задание выполнено.
